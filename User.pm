@@ -8,7 +8,7 @@ require Exporter;
 
 use vars qw(@ISA $VERSION);
 
-$VERSION = '1.5';
+$VERSION = '1.6';
 
 
 # Preloaded methods go here.
@@ -88,6 +88,16 @@ C<getpwuid>, and various environment variables.
 
 None by default.
 
+=head1 COPYRIGHT INFO
+
+Copyright: Copyright (c) 2002 Terrence Monroe Brannon.  
+All rights reserved.  This
+program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
+License: GPL, Artistic, available in the Debian Linux Distribution at
+/usr/share/common-licenses/{GPL,Artistic}
+
 =head1 AUTHOR
 
 T.M. Brannon, tbone@cpan.org
@@ -99,6 +109,10 @@ Additions by Rob Napier, rnapier@employees.org
 I would like to offer profuse thanks to my fellow perl monk at 
 www.perlmonks.org, the_slycer, who told me where HOME could be
 found on Windows machines.
+
+I would also like to thank Bob Armstrong for providing me with the
+text of the copyright notice and for including this in the Debian
+Linux distribution.
 
 perl(1).
 
