@@ -8,7 +8,7 @@ require Exporter;
 
 use vars qw(@ISA $VERSION);
 
-$VERSION = '1.2';
+$VERSION = '1.3';
 
 
 # Preloaded methods go here.
@@ -21,7 +21,10 @@ sub Home {
 
 }
 
-  
+sub Login {
+    return getlogin || getpwuid( $< ) || $ENV{ LOGNAME } || $ENV{ USER } ||
+        $ENV{ USERNAME } || 'unknown';
+}
 
 1;
 __END__
@@ -41,15 +44,20 @@ User - API for locating user information regardless of OS
           -default => 'Default'
         );
 
-
-
+  print "Your login is ", User->Login, "\n";
 
 =head1 DESCRIPTION
 
-This module is allows applications to retrieve per-user characteristics. At
-present, it contains only one method, Home(), which is used to return a 
-location that can be expected to be a users "Home" directory on either
-Windows or Unix.
+This module is allows applications to retrieve per-user characteristics.
+
+=head1 METHODS
+
+=over 4
+
+=item Home
+
+Returns a location that can be expected to be a users "Home" directory
+on either Windows or Unix.
 
 While one way of writing this would be to check for operating system
 and then check the expected location for an operation system of that type,
@@ -69,14 +77,22 @@ that is used. Otherwise $USERPROFILE is used. Otherwise "" is returned.
 A contribution for Macintosh (or any other number of OS/arch combinations) is
 greatly solicited.
 
+=item Login
+
+Returns login id of user on either Unix or NT by checking C<getlogin>,
+C<getpwuid>, and various environment variables.
+
+=back
+
 =head2 EXPORT
 
 None by default.
 
-
 =head1 AUTHOR
 
 T.M. Brannon, tbone@cpan.org
+
+Additions by Rob Napier, rnapier@employees.org
 
 =head1 ACKNOWLEDGEMENTS
 
