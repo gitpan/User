@@ -8,7 +8,7 @@ require Exporter;
 
 use vars qw(@ISA $VERSION);
 
-$VERSION = '1.0';
+$VERSION = '1.1';
 
 
 # Preloaded methods go here.
@@ -39,10 +39,14 @@ User - API for locating user information regardless of OS
 
   use User;
 
-  $config_file_location = User->Home;
-  $config_file_name     = ".app-config"
+  my $cfg = Config::IniFiles->new
+        (
+          -file    => sprintf("%s/%s", User->Home, ".ncfg"),
+          -default => 'Default'
+        );
 
-  open C, "$config_file_location/$config_file_name" || die "Couldn't open: $!";
+
+
 
 =head1 DESCRIPTION
 
