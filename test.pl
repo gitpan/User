@@ -7,12 +7,12 @@ BEGIN { plan tests => 3 }
 
 use User;
 
-use Cwd qw( getcwd );
+use Cwd qw( getcwd abs_path);
 
 # Test 1: Check out Home using chdir()
 my $oldpwd = getcwd;
 chdir();
-ok( User->Home, getcwd );
+ok( abs_path( User->Home ), getcwd );
 chdir( $oldpwd );
 
 # Test 2: Make sure Login returns something

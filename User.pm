@@ -8,7 +8,7 @@ require Exporter;
 
 use vars qw(@ISA $VERSION);
 
-$VERSION = '1.4';
+$VERSION = '1.5';
 
 
 # Preloaded methods go here.
