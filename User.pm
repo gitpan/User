@@ -8,21 +8,17 @@ require Exporter;
 
 use vars qw(@ISA $VERSION);
 
-$VERSION = '1.1';
+$VERSION = '1.2';
 
 
 # Preloaded methods go here.
 
 sub Home {
-  my $home;
 
-  if ($^O eq 'MSWin32') {
-    $home = $ENV{USERPROFILE};
-  } else {
-    $home = $ENV{HOME};
-  }
+  return $ENV{HOME}        if $ENV{HOME};
+  return $ENV{USERPROFILE} if $ENV{USERPROFILE};
+  return  "";
 
-  return $home;
 }
 
   
@@ -54,6 +50,21 @@ This module is allows applications to retrieve per-user characteristics. At
 present, it contains only one method, Home(), which is used to return a 
 location that can be expected to be a users "Home" directory on either
 Windows or Unix.
+
+While one way of writing this would be to check for operating system
+and then check the expected location for an operation system of that type,
+I chose to do the following:
+
+ sub Home {
+
+  return $ENV{HOME}        if $ENV{HOME};
+  return $ENV{USERPROFILE} if $ENV{USERPROFILE};
+  return  "";
+
+ }
+
+In other words, if $HOME is defined in the user's environment, then
+that is used. Otherwise $USERPROFILE is used. Otherwise "" is returned.
 
 A contribution for Macintosh (or any other number of OS/arch combinations) is
 greatly solicited.
