@@ -8,7 +8,7 @@ require Exporter;
 
 use vars qw(@ISA $VERSION);
 
-$VERSION = '1.6';
+$VERSION = '1.8';
 
 
 # Preloaded methods go here.
@@ -90,7 +90,7 @@ None by default.
 
 =head1 COPYRIGHT INFO
 
-Copyright: Copyright (c) 2002 Terrence Monroe Brannon.  
+Copyright: Copyright (c) 2002-2007 Terrence Brannon.  
 All rights reserved.  This
 program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
@@ -102,7 +102,8 @@ License: GPL, Artistic, available in the Debian Linux Distribution at
 
 T.M. Brannon, tbone@cpan.org
 
-Additions by Rob Napier, rnapier@employees.org
+I am grateful for additions by Rob Napier and Malcom Nooning.
+
 
 =head1 ACKNOWLEDGEMENTS
 

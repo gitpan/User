@@ -11,6 +11,7 @@ use Cwd qw( getcwd abs_path);
 
 # Test 1: Check out Home using chdir()
 my $oldpwd = getcwd;
+$ENV{HOME} = $ENV{USERPROFILE} if ($^O eq 'MSWin32');
 chdir();
 ok( abs_path( User->Home ), getcwd );
 chdir( $oldpwd );
