@@ -1,14 +1,10 @@
 package User;
 
-
 use strict;
-
-
-require Exporter;
 
 use vars qw(@ISA $VERSION);
 
-$VERSION = '1.8';
+$VERSION = '1.9';
 
 
 # Preloaded methods go here.
@@ -84,13 +80,14 @@ C<getpwuid>, and various environment variables.
 
 =back
 
-=head2 EXPORT
+=head1 SEE ALSO
 
-None by default.
+L<File::HomeDir> seems to be a very well-done update of the same concept as this module.
+
 
 =head1 COPYRIGHT INFO
 
-Copyright: Copyright (c) 2002-2007 Terrence Brannon.  
+Copyright: Copyright (c) 2002-2010 Terrence Brannon.
 All rights reserved.  This
 program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
